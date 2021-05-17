@@ -4,180 +4,180 @@ export class InMemoryDataService implements InMemoryDbService {
 	createDb() {
 		let task = [
 
-			{ id: 1, procurement: 'PRO2893', start_date: '2021-04-12 00:00', progress: 0.6, building: 'Building01', product: 'Metamizol Na', Campaign: '', type: "project" },
-			{ id: 2, procurement: 'PRO2894', start_date: '2021-04-13 00:00', progress: 0.4, building: 'Building01', product: 'Metamizol Na', Campaign: '', type: "project" },
+			{ id: 1, procurement: 'PRO2893', text: 'PRO2893', start_date: '2021-04-12 00:00', progress: 0.6, building: 'Building01', product: 'Metamizol Na', Campaign: '', type: "project", render: '' },
+			{ id: 2, procurement: 'PRO2894', text: 'PRO2894', start_date: '2021-04-13 00:00', progress: 0.4, building: 'Building01', product: 'Metamizol Na', Campaign: '', type: "project", render: '' },
 			{
-				id: 3, procurement: 'PRO2895', start_date: '2021-04-14 00:00', progress: 0.8, building: 'Building01', product: 'Metamizol Na', Campaign: '', type: "project"
+				id: 3, procurement: 'PRO2895', text: 'PRO2895', start_date: '2021-04-14 00:00', progress: 0.8, building: 'Building01', product: 'Metamizol Na', Campaign: '', type: "project", render: ''
 			},
-			{ id: 4, procurement: 'PRO-Clean#01', start_date: '2021-04-15 00:00', building: 'Building01', product: 'Metamizol Na', Campaign: '', type: "project" },
+			{ id: 4, procurement: 'PRO-Clean#01', text: 'PRO-Clean#01', start_date: '2021-04-15 00:00', building: 'Building01', product: 'Metamizol Na', Campaign: '', type: "project", render: '' },
 			{
-				id: 5, procurement: 'PRO2896', start_date: '2021-04-13 00:00', progress: 0.8, building: 'Building01', product: 'Metamizol Na', Campaign: '', type: "project"
+				id: 5, procurement: 'PRO2896', text: 'PRO2896', start_date: '2021-04-13 00:00', progress: 0.8, building: 'Building01', product: 'Metamizol Na', Campaign: '', type: "project", render: ''
 			},
-			{ id: 6, procurement: 'PRO-Clean#02', start_date: '2021-04-14 00:00', building: 'Building01', product: 'Metamizol Na', Campaign: '', type: "project" },
-			{ id: 7, procurement: 'PRO2897', start_date: '2021-04-12 00:00', progress: 0.7, building: 'Building01', product: 'Metamizol Mg', Campaign: '', type: "project" },
+			{ id: 6, procurement: 'PRO-Clean#02', text: 'PRO-Clean#02', start_date: '2021-04-14 00:00', building: 'Building01', product: 'Metamizol Na', Campaign: '', type: "project", render: '' },
+			{ id: 7, procurement: 'PRO2897', text: 'PRO2897', start_date: '2021-04-12 00:00', progress: 0.7, building: 'Building01', product: 'Metamizol Mg', Campaign: '', type: "project", render: '' },
 			{
-				id: 8, procurement: "PRO2898", start_date: "2021-04-13 00:00", type: "project", building: 'Building01', product: 'Metamizol Mg'
+				id: 8, procurement: "PRO2898", text: "PRO2898", start_date: "2021-04-13 00:00", type: "project", building: 'Building01', product: 'Metamizol Mg', render: ''
 			},
-			{ id: 9, procurement: 'PRO-Clean#03', start_date: '2021-04-14 00:00', building: 'Building01', product: 'Metamizol Mg', Campaign: '', type: "project" },
+			{ id: 9, procurement: 'PRO-Clean#03', text: 'PRO-Clean#03', start_date: '2021-04-14 00:00', building: 'Building01', product: 'Metamizol Mg', Campaign: '', type: "project", render: '' },
 			{
 				id: 10, text: "Reaction 212", start_date: "2021-04-13 00:00", duration: 1,
-				parent: 8, Campaign: ''
+				parent: 8, Campaign: '', procurement: ''
 			},
 			{
 				id: 11, text: "Crystalization 412", start_date: "2021-04-14 00:00", duration: 2,
-				parent: 8, Campaign: ''
+				parent: 8, Campaign: '', procurement: ''
 			},
 			{
 				id: 12, text: "Centrifugation 543", start_date: "2021-04-16 00:00", duration: 2,
-				parent: 8, Campaign: ''
+				parent: 8, Campaign: '', procurement: ''
 			},
 			{
 				id: 13, text: "Drying 781", duration: 1, start_date: "2021-04-20 00:00",
-				parent: 8, Campaign: ''
+				parent: 8, Campaign: '', procurement: ''
 			},
 			{
 				id: 14, text: "Reaction 212", start_date: "2021-04-12 00:00", duration: 1,
-				parent: 1, Campaign: ''
+				parent: 1, Campaign: '', procurement: ''
 			},
 			{
 				id: 15, text: "Crystalization 412", start_date: "2021-04-13 00:00", duration: 2,
-				parent: 1, Campaign: ''
+				parent: 1, Campaign: '', procurement: ''
 			},
 			{
 				id: 16, text: "Centrifugation 543", start_date: "2021-04-15 00:00", duration: 2,
-				parent: 1, Campaign: ''
+				parent: 1, Campaign: '', procurement: ''
 			},
 			{
 				id: 17, text: "Drying 781", duration: 1, start_date: "2021-04-19 00:00",
-				parent: 1, Campaign: ''
+				parent: 1, Campaign: '', procurement: ''
 			},
 			{
 				id: 18, text: "Reaction 212", start_date: "2021-04-13 00:00", duration: 1,
-				parent: 2, Campaign: ''
+				parent: 2, Campaign: '', procurement: ''
 			},
 			{
 				id: 19, text: "Crystalization 412", start_date: "2021-04-14 00:00", duration: 2,
-				parent: 2, Campaign: ''
+				parent: 2, Campaign: '', procurement: ''
 			},
 			{
 				id: 20, text: "Centrifugation 543", start_date: "2021-04-16 00:00", duration: 2,
-				parent: 2, Campaign: ''
+				parent: 2, Campaign: '', procurement: ''
 			},
 			{
 				id: 21, text: "Drying 781", duration: 1, start_date: "2021-04-20 00:00",
-				parent: 2, Campaign: ''
+				parent: 2, Campaign: '', procurement: ''
 			},
 			{
 				id: 22, text: "Reaction 212", start_date: "2021-04-14 00:00", duration: 1,
-				parent: 3, Campaign: ''
+				parent: 3, Campaign: '', procurement: ''
 			},
 			{
 				id: 23, text: "Crystalization 412", start_date: "2021-04-15 00:00", duration: 2,
-				parent: 3, Campaign: ''
+				parent: 3, Campaign: '', procurement: ''
 			},
 			{
 				id: 24, text: "Centrifugation 543", start_date: "2021-04-19 00:00", duration: 2,
-				parent: 3, Campaign: ''
+				parent: 3, Campaign: '', procurement: ''
 			},
 			{
 				id: 25, text: "Drying 781", duration: 1, start_date: "2021-04-21 00:00",
-				parent: 3, Campaign: ''
+				parent: 3, Campaign: '', procurement: ''
 			},
 			{
 				id: 26, text: "", start_date: "2021-04-15 00:00", end_date: "2021-04-15 04:00",
-				parent: 4, Campaign: ''
+				parent: 4, Campaign: '', procurement: ''
 			},
 			{
 				id: 27, text: "", start_date: "2021-04-19 00:00", end_date: "2021-04-19 04:00",
-				parent: 4, Campaign: ''
+				parent: 4, Campaign: '', procurement: ''
 			},
 			{
 				id: 28, text: "", start_date: "2021-04-21 00:00", end_date: "2021-04-21 04:00",
-				parent: 4, Campaign: ''
+				parent: 4, Campaign: '', procurement: ''
 			},
 			{
 				id: 29, text: "", start_date: "2021-04-22 00:00", end_date: "2021-04-22 04:00",
-				parent: 4, Campaign: ''
+				parent: 4, Campaign: '', procurement: ''
 			},
 			{
 				id: 30, text: "Reaction 212", start_date: "2021-04-13 00:00", duration: 1,
-				parent: 5, Campaign: ''
+				parent: 5, Campaign: '', procurement: ''
 			},
 			{
 				id: 31, text: "Crystalization 412", start_date: "2021-04-14 00:00", duration: 2,
-				parent: 5, Campaign: ''
+				parent: 5, Campaign: '', procurement: ''
 			},
 			{
 				id: 32, text: "Centrifugation 543", start_date: "2021-04-16 00:00", duration: 2,
-				parent: 5, Campaign: ''
+				parent: 5, Campaign: '', procurement: ''
 			},
 			{
 				id: 33, text: "Drying 781", duration: 1, start_date: "2021-04-20 00:00",
-				parent: 5, Campaign: ''
+				parent: 5, Campaign: '', procurement: ''
 			},
 			{
 				id: 34, text: "", start_date: "2021-04-14 00:00", end_date: "2021-04-14 04:00",
-				parent: 6, Campaign: ''
+				parent: 6, Campaign: '', procurement: ''
 			},
 			{
 				id: 35, text: "", start_date: "2021-04-16 00:00", end_date: "2021-04-16 04:00",
-				parent: 6, Campaign: ''
+				parent: 6, Campaign: '', procurement: ''
 			},
 			{
 				id: 36, text: "", start_date: "2021-04-20 00:00", end_date: "2021-04-20 04:00",
-				parent: 6, Campaign: ''
+				parent: 6, Campaign: '', procurement: ''
 			},
 			{
 				id: 37, text: "", start_date: "2021-04-21 00:00", end_date: "2021-04-21 04:00",
-				parent: 6, Campaign: ''
+				parent: 6, Campaign: '', procurement: ''
 			},
 			{
 				id: 38, text: "Reaction 212", start_date: "2021-04-12 00:00", duration: 1,
-				parent: 7, Campaign: ''
+				parent: 7, Campaign: '', procurement: ''
 			},
 			{
 				id: 39, text: "Crystalization 412", start_date: "2021-04-13 00:00", duration: 2,
-				parent: 7, Campaign: ''
+				parent: 7, Campaign: '', procurement: ''
 			},
 			{
 				id: 40, text: "Centrifugation 543", start_date: "2021-04-15 00:00", duration: 2,
-				parent: 7, Campaign: ''
+				parent: 7, Campaign: '', procurement: ''
 			},
 			{
 				id: 41, text: "Drying 781", duration: 1, start_date: "2021-04-19 00:00",
-				parent: 7, Campaign: ''
+				parent: 7, Campaign: '', procurement: ''
 			},
 			{
 				id: 42, text: "Reaction 212", start_date: "2021-04-13 00:00", duration: 1,
-				parent: 8, Campaign: ''
+				parent: 8, Campaign: '', procurement: ''
 			},
 			{
 				id: 43, text: "Crystalization 412", start_date: "2021-04-14 00:00", duration: 2,
-				parent: 8, Campaign: ''
+				parent: 8, Campaign: '', procurement: ''
 			},
 			{
 				id: 44, text: "Centrifugation 543", start_date: "2021-04-16 00:00", duration: 2,
-				parent: 8, Campaign: ''
+				parent: 8, Campaign: '', procurement: ''
 			},
 			{
 				id: 45, text: "Drying 781", duration: 1, start_date: "2021-04-20 00:00",
-				parent: 8, Campaign: ''
+				parent: 8, Campaign: '', procurement: ''
 			},
 			{
 				id: 46, text: "", start_date: "2021-04-14 00:00", end_date: "2021-04-14 04:00",
-				parent: 9, Campaign: ''
+				parent: 9, Campaign: '', procurement: ''
 			},
 			{
 				id: 47, text: "", start_date: "2021-04-16 00:00", end_date: "2021-04-16 04:00",
-				parent: 9, Campaign: ''
+				parent: 9, Campaign: '', procurement: ''
 			},
 			{
 				id: 48, text: "", start_date: "2021-04-20 00:00", end_date: "2021-04-20 04:00",
-				parent: 9, Campaign: ''
+				parent: 9, Campaign: '', procurement: ''
 			},
 			{
 				id: 49, text: "", start_date: "2021-04-21 00:00", end_date: "2021-04-21 04:00",
-				parent: 9, Campaign: ''
+				parent: 9, Campaign: '', procurement: ''
 			},
 
 		];

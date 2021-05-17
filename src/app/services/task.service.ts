@@ -18,6 +18,7 @@ export class TaskService {
 	}
 
 
+
 	insert(task: Task): Promise<Task> {
 		return this.http.post(this.taskUrl, task)
 			.toPromise()

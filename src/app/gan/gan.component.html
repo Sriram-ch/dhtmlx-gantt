@@ -31,6 +31,7 @@ style="background-color: #fff;height: 100%;width:100%;padding: 0;overflow-y: hid
 width: calc(100% - 20px);box-shadow: 1px 2px 3px 1px #aaaaaa;margin-left:10px;" >
 <input type='button' id='Campaign' (click)="showGroups()" value="Tree">
 <input type='button' id='Campaign' (click)="showGroups('Campaign')" value="Group by Campaign">
+<input type="button" id='order' (click)="seeOrder('this')" value="Expand" style="float: right;">
 
 <div  #gantt_here class='gantt-chart'></div>
 </div>
