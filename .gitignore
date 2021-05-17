@@ -44,3 +44,7 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# Enterprised versions
+gantt_7.1.1_enterprise/
+scheduler_5.3.11_enterprise/

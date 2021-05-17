@@ -1,0 +1,100 @@
+ <!-- <nav class=".navbar" style="background: #FFC000; min-height: 38px; ">
+  <img src="{{headerData[0].bodhee_icon}}" style="width:7em; margin-left: 11px;">
+  <a class='nav-link' style='display: inline; margin-left: 71%;'>Hi,{{tenantName[0].tenant_name}}</a>
+  <img src="..\assets\png\Picture2.jpg" style="height: 37px; width: 3.5rem; float: right;">
+</nav>  -->
+
+<nav class='navbar fixed-top navbar-expand-md theme-primary' id='cNavBar1' style="height: 50px; padding-top: 0px; padding-bottom: 0px; padding-right: 0px;">
+
+    <div class='collapse navbar-collapse' id='navbarNav'>
+  
+      <ul class='navbar-nav mr-auto'>
+  
+        <li class='nav-item'>
+  
+          <a routerLink="/home">
+          <div >
+            <img src="../../assets/png/bodhee_logo.png" alt='Bodhee Logo' style='width:7.5em;'>
+          </div>
+          
+  
+          </a>
+        </li>
+  
+      </ul>
+  
+      <ul class='navbar-nav ml-auto'>
+  
+        <li class='nav-item' style="margin-top: 0.4rem; margin-right: 0.4rem;">
+  
+          <div class="collapse navbar-collapse js-navbar-collapse">
+            <ul class="nav navbar-nav">
+              <li class="dropdown dropdown-large">
+                <a href="#" class="navigation dropdown-toggle" data-toggle="dropdown" style="color: white; font-size: 1.6rem;"> <b class="fa fa-th fa-x"></b></a>
+                <ul class="navigation-menu dropdown-menu dropdown-menu-large" style="padding-left: 0.7rem;">
+                 
+                  <li *ngFor="let sample of responseText" class="card" (click)='navigatePath(sample.url)' style="min-width: 100px; width: 100px; height: 110px; margin: 0.3rem; display: inline-grid;">
+                      <img src={{sample.icon}} class="card-img-top" alt="..." style="width:60px;display: block; margin-left: auto;  margin-right: auto;">
+                      <div class="card-body">
+                      <p class="card-text text-center" style="font-weight: 500;">{{sample.name}}</p>
+                      </div>
+                  </li>
+            
+                </ul>
+                
+              </li>
+            </ul>
+            
+          </div>
+        </li> 
+  
+        <li class='nav-item' style="margin-top: 10px; display: flex;">
+         
+          <fa-icon [icon]="['fas', 'question-circle']" size="lg" style='color: white;font-size: larger;' [fixedWidth]='true' title="Help"></fa-icon>
+  
+        </li>
+        <!-- <li class='nav-item' style="margin-top: 7px;" id="logoutIcon">
+  
+          <fa-icon [icon]="['fas', 'sign-out-alt']" size="lg" style='color: white;font-size: larger;cursor: pointer;' [fixedWidth]='true' (click)="onLogout()"></fa-icon>
+  
+        </li> -->
+        <li class="nav-item dropdown">
+          <div class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" style='font-weight: 600;margin-top: 0.3rem;'
+            aria-haspopup="true" aria-expanded="false">Sriram Ch
+        </div>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="left: -1rem;">
+            <a class="dropdown-item" style="font-weight: 600;padding-left: 0.8rem;cursor: pointer;" (click)="redirectIAM()"><fa-icon [icon]="['fas', 'user-shield']" size="lg" style='font-size: smaller;padding-right: 1rem;' [fixedWidth]='true'></fa-icon>IAM</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" style="font-weight: 600;padding-left: 0.8rem;cursor: pointer;" (click)="resettingPassword()" data-toggle="modal" data-target="#resetPasswordModal"> <fa-icon [icon]="['fas', 'key']" size="lg" style='font-size: smaller;padding-right: 1rem;' [fixedWidth]='true'></fa-icon>Reset Password</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" style="font-weight: 600;padding-left: 0.8rem;cursor: pointer;"  (click)="onLogout()"><fa-icon [icon]="['fas', 'sign-out-alt']" size="lg" style='font-size: smaller;padding-right: 1rem;' [fixedWidth]='true'></fa-icon>Logout</a>
+            
+          </div>
+        </li>
+  
+        
+        
+  
+        <li class='nav-item'>
+  
+          <a class='nav-link' style='display: inline;padding: 0.3rem;'>&nbsp;</a>
+  
+        </li>
+  
+        
+  
+        <li class='nav-item'>
+  
+          <img src="..\assets\png\Picture2.jpg" alt='Client Logo' style='width:50px; height: 50px;'>
+  
+        </li>
+  
+      </ul>
+  
+    </div>
+  
+    <!-- endcNavBar1 -->
+  
+  </nav>
+  
+  

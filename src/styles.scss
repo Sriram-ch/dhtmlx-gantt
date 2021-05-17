@@ -1,1 +1,572 @@
 /* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+/* body{
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+} */
+/* html{
+    overflow-y: hidden;
+} */
+
+ 
+
+
+
+.bd-bg-primary {
+   background-color:#FFC000;
+}
+.bd-bg-secondary1{
+   background-color:#ED7D31;
+}
+.bd-bg-secondary2{
+   background-color:#A5A5A5;
+}
+.bd-text-primary{
+   color: #595959;
+}
+.bd-text-alt{
+   color: white;
+}
+.bd-text-secondary1{
+   color:#FFC000;
+}
+.bd-text-secondary2{
+   color:#ED7D31;
+}
+
+
+.dropdown-menu a:active{
+	background-color: #f8f9fa !important;
+	color:#ED7D31 !important;
+}
+
+
+.container-fluid{
+    background-color: #F5F5F5;
+}
+.button-primary{
+    /* border: 1px solid white; */
+    color: white;
+    text-align: center;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    background: #FFC000;
+    border: none;
+    width: auto;
+    height: 1.8rem;
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.25);
+}
+.button-primary:hover{
+    box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.25);
+    background: #FFC000;
+    /* border: 1px solid white; */
+}
+.button-primary:focus{
+    outline: 0;
+}
+.button-primary:disabled{
+    opacity: .65;
+    cursor: not-allowed;
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.25);
+  }
+/* @media only screen and (min-height: 900px) {
+    .button-primary
+    {
+        width: 7vw;
+        height: 2.4vh;
+    }
+} */
+.ngx-contextmenu .dropdown-menu a{
+    color: #ED7D31;
+    background: white;
+    text-decoration-line: none;
+    font-size: 16px;
+  }
+
+
+.btn-primary{
+    color: white;
+    text-align: center;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 17px;
+    width: 127%;
+    background: #FFC000;
+    
+}
+.btn-primary:hover{
+    box-shadow: 0 4px 4px rgba(33,33,33,.2); 
+    background: #FFC000;
+
+}
+
+
+
+button:hover, .btn:hover{
+    box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.25);
+     
+}
+.nav-pills .nav-link.active, .nav-pills .nav-link.active:hover,.nav-pills .nav-link.active:focus{
+   background-color:#ED7D31 !important;
+   
+   }
+option{
+    background-color: white;
+    color: black;
+    font-size: 14px;
+
+}
+
+/* layover */
+.overlay {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1060;
+    top: 0;
+    right: 0;
+    background-color: white;
+    background-color: white;
+    overflow-x: hidden;
+    transition: 0.5s;
+    }
+    
+    .overlay-content {
+    /* position: relative; */
+    top: 5%;
+    width: 100%;
+    text-align: center; 
+    }
+    
+    .overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 15px;
+    color: black;
+    display: block;
+    transition: 0.3s;
+    }
+    
+    .overlay a:hover, .overlay a:focus {
+    color: black;
+    }
+    
+    .overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    left: 45px;
+    font-size: 60px;
+    }
+    
+    @media screen and (max-height: 450px) {
+    .overlay a {font-size: 20px}
+    .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    left: 35px;
+    }
+    }
+/* layover */
+input:focus{
+    box-shadow: none !important;
+    border-color: unset !important;
+    outline: none !important;
+  }
+  textarea:focus{
+    box-shadow: none !important;
+    border-color: unset !important;
+  }
+
+
+.ng-select-container{
+   box-shadow: none !important;
+}
+
+.tabulator-page {
+    border-color: #dee2e6 !important;
+}
+
+.tabulator-col-content{
+    text-align: center !important;
+}
+ .tabulator-tableHolder .tabulator-table .tabulator-row{
+    background-color: white;
+    border-bottom: 0.5px solid gray !important;
+}
+
+
+ .tabulator-tableHolder .tabulator-table .tabulator-row:nth-child(even) {
+    background-color: white;
+    border-bottom: 0.5px solid gray !important;
+}
+
+.tabulator-footer .tabulator-page{
+    padding: 3px 9px !important;
+    
+}
+
+.tabulator-page .active{
+    color: red !important;
+    font-weight: 700 !important;
+ }
+ 
+ .tabulator-page{
+    background-color: #dcdcdc !important;
+    opacity: 1 !important;
+ }
+ 
+ .tabulator-page:hover{
+    transform: scale(1.1);
+ }
+ 
+ .tabulator-page:disabled{
+    transform: none;
+ }
+ 
+
+/*.tabulator-col{
+   font-size: 16px!important;
+   font-weight: 600 !important;
+   background-color: white !important;
+}
+
+.tabulator-cell{
+   font-size: 15px!important;
+   font-weight: 500 !important;
+} */
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+
+ .ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-marked{
+    background-color: #f3f3f3 !important;
+ }
+
+ .ng-dropdown-panel .ng-dropdown-panel-items{
+    max-height: 220px !important;
+    text-align: left !important;
+ }
+
+
+
+ .tabulator-selected{
+    background-color: #E5E7E9 !important;
+ }
+ 
+.tabulator-row:hover {
+    background-color:  #f5f5f5 !important;
+    
+}
+
+.tabulator-cell{
+    font-weight: 500 !important;
+}
+.tabulator-tableHolder .tabulator-placeholder span{
+    color: #595959 !important;
+}
+.ng-dropdown-panel-items{
+    width: inherit !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+  }
+
+  .ng-select-focused{
+    box-shadow: none !important;
+    border: none !important;
+    outline: none !important;
+}
+
+
+
+/* .ng-star-inserted{
+    padding: 3px 7px;
+} */
+
+/* .ng-star-inserted:hover{
+    background-color: #dcdcdc;
+} */
+
+
+/* .existingNodeDiv .ng-star-inserted:hover{
+    background-color: none !important;
+  } */
+
+
+.dropdown-menu li:hover{
+    background-color: #f8f9fa;
+    transform: scale(1.04);
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.25);
+}
+
+.dropdown-menu li{
+    margin: 2px 0px ;
+}
+
+.tabulator-cell{
+   font-size: 15px!important;
+   font-weight: 500 !important;
+} 
+.tabulator-page {
+   border-color: #dee2e6 !important;
+}
+
+.tabulator-col-content{
+   text-align: center !important;
+}
+.tabulator-header{
+   border-bottom: 0.27rem solid #ffc000 !important;
+}
+.tabulator-tableHolder .tabulator-table .tabulator-row{
+   background-color: white;
+   border-bottom: 0.5px solid gray !important;
+}
+
+
+.tabulator-tableHolder .tabulator-table .tabulator-row:nth-child(even) {
+   background-color: white;
+   border-bottom: 0.5px solid gray !important;
+}
+
+.tabulator-footer .tabulator-page{
+   padding: 3px 9px !important;
+   
+}
+.tabulator .tabulator-footer .tabulator-page:disabled{
+   background: #dcdcdc !important;
+   cursor: not-allowed !important;
+   box-shadow: none !important;
+   color: #6c757d !important;
+}
+
+.tabulator-page .active{
+   color: red !important;
+   font-weight: 700 !important;
+}
+
+.tabulator-page{
+   background-color: #dcdcdc !important;
+   opacity: 1 !important;
+}
+
+.tabulator-page:hover{
+   transform: scale(1.1);
+}
+
+.tabulator-page:disabled{
+   transform: none;
+}
+.tabulator-page:focus{
+   outline: none;
+}
+
+.dropdown-menu{
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.25);
+}
+
+.dropdown-menu:hover{
+    box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.25);
+}
+
+.dropdown-menu{
+    padding: 0.5rem;
+}
+ .ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-marked{
+    background-color: #f3f3f3 !important;
+ }
+ .tabulator-selected{
+   background-color: #E5E7E9 !important;
+}
+
+.tabulator-row:hover {
+   background-color:  #f5f5f5 !important;
+   
+}
+
+.tabulator-cell{
+   font-weight: 500 !important;
+}
+.tabulator-tableHolder .tabulator-placeholder span{
+   color: #595959 !important;
+}
+.required:after {
+    content:" *";
+    color: red;
+  }
+  .tabulator-data-tree-control{
+   background: rgb(0 0 0 / 80%) !important;
+ }
+ .featureTable .table-borderless .table-sm .tabulator{
+   overflow-x: hidden !important;
+   overflow-y: auto !important;
+ }
+ 
+ .featureTable .tabulator-tableHolder{
+   overflow-x: hidden !important;
+   overflow-y: auto !important;
+ }
+
+ 
+.ng-select.navDropDown {
+   height: 1.8rem;
+   color: white;
+   padding: 0 !important;
+   cursor: pointer;
+   border-radius: 0.25rem !important;
+   background: #ffc000 !important;
+   text-align: left !important;
+   box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.25) !important;
+ }
+ 
+ .ng-select.navDropDown::placeholder {
+   color: white;
+ }
+ 
+ .ng-select.navDropDown .ng-placeholder {
+   color: white !important;
+ }
+
+ .ng-select.formDrop::placeholder {
+   color: #bebebe;
+ }
+ 
+ .ng-select.formDrop .ng-placeholder {
+   color: #bebebe !important;
+ }
+ 
+ .ng-select.navDropDown .ng-arrow-wrapper .ng-arrow{
+   border-color: white transparent transparent !important;
+ }
+ 
+ .ng-select.navDropDown .ng-dropdown-panel-items{
+   width: inherit !important;
+   font-size: 14px !important;
+   font-weight: 500 !important;
+ }
+
+ .ng-select.formDrop{
+    height: calc(1.5em + .75rem + 2px);
+    margin-top: 2rem;
+    border-radius: .25rem;
+ }
+
+ .ng-select.formDrop .ng-select-container{
+   height: inherit !important;
+   min-height: inherit !important;
+   width: inherit !important;
+   border:1px solid #ccc !important;
+   background: inherit;
+   color: inherit !important;
+   border-radius: inherit !important;
+   font-size: inherit;
+ }
+ .ng-select-disabled>.ng-select-container{
+   background-color: #e9ecef !important;
+   cursor: not-allowed !important;
+ }
+
+ .ng-select.modalDrop{
+   background: none; 
+   outline: none;
+   background-color:#DCDCDC !important;
+   padding: 0; 
+   height: 37px; 
+   border-radius: 0.25rem;
+ }
+
+ .ng-select.navDropDown .ng-select-container{
+   height: inherit !important;
+   min-height: inherit !important;
+   outline: none !important;
+   border: none !important;
+   width: inherit !important;
+   background: inherit !important;
+   color: inherit !important;
+   border-radius: inherit !important;
+   font-size: inherit;
+ }
+
+ .ng-select.modalDrop .ng-select-container{
+   height: inherit !important;
+   min-height: inherit !important;
+   outline: none !important;
+   border: none !important;
+   width: inherit !important;
+   background: inherit !important;
+   color: inherit !important;
+   border-radius: inherit !important;
+   font-size: inherit;
+ }
+
+ .ng-select.configDropDown{
+   height: 1.8rem !important;
+   padding: 0 !important;
+   border-radius: 0.25rem !important;
+   text-align: left !important;
+   color: white !important;
+ }
+
+ .ng-select.configDropDown .ng-select-container{
+   height: inherit !important;
+   min-height: inherit !important;
+   outline: none !important;
+   border: none !important;
+   width: inherit !important;
+   background: inherit !important;
+   color: inherit !important;
+   border-radius: inherit !important;
+   font-size: inherit;
+ }
+
+ .ng-select.iamDropDown{
+   min-height: 30px !important;
+   height: 30px !important;
+   width: inherit;
+   padding: 0 !important;
+   border: none !important;
+ }
+
+ .ng-select.iamDropDown .ng-select-container{
+   min-height: inherit !important;
+   border:1px solid #ccc !important;
+   height: inherit !important;
+   color: #495057 !important;
+ }
+
+ /************************************ AIHUB Tabulator styling **************************************/
+
+ #modelRepoTable .tabulator-col-title{
+   text-align: left !important; 
+ } 
+
+ #modelsTable .tabulator-col-title{
+   text-align: left !important; 
+ } 
+
+ #modelRepoInstanceTable .tabulator-col-title{
+   text-align: left !important; 
+ } 
+
+ #sqlSourceTable .tabulator-col-title{
+   text-align: left !important; 
+ } 
+
+ 
+#apiSourceTable            .tabulator-col-title{
+   text-align: left !important; 
+ } 
+#pipelineModelSourceTable  .tabulator-col-title{
+   text-align: left !important; 
+ } 
+#apiResponseTable          .tabulator-col-title{
+   text-align: left !important; 
+ } 
+#dataCatalogTargetTable    .tabulator-col-title{
+   text-align: left !important; 
+ }  
+ 
+ #pipelinesTable   .tabulator-col-title{
+   text-align: left !important; 
+ }  
