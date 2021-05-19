@@ -17,6 +17,7 @@ export class GanComponent implements OnInit {
   @ViewChild('gantt_here', { static: true }) ganttContainer: ElementRef;
 
   selectedCampaigns: [] = [];
+  AllCampaigns: [] = [];
 
   constructor(private taskService: TaskService, private linkService: LinkService) { }
 
@@ -64,7 +65,7 @@ export class GanComponent implements OnInit {
     gantt.config.auto_scheduling = true;
     gantt.config.drag_multiple = true;
     gantt.config.drag_project = true;
-    //gantt.config.work_time = true;
+    gantt.config.work_time = true;
 
     gantt.templates.grid_row_class =
       gantt.templates.task_row_class = function (start, end, task) {
@@ -100,21 +101,37 @@ export class GanComponent implements OnInit {
       var value = gantt.getLightboxSection('Campaign').getValue();
       var json = { key: value, label: value }
       var filtered = this.selectedCampaigns.filter(c => c.key == value);
-      if (filtered.length == 0) { this.selectedCampaigns.push(json); }
-      console.log(this.selectedCampaigns);
+      if (filtered.length == 0) {
+        this.selectedCampaigns.push(json);
+      }
+      this.AllCampaigns.push(json);
+      console.log("all",this.AllCampaigns)
+      console.log("selected",this.selectedCampaigns)
       return true;
     }, { thisObject: this })
 
     gantt.attachEvent("onLightboxDelete", function (id) {
-      var value = gantt.getLightboxSection('Campaign').getValue();
-      for (let [i, user] of this.selectedCampaigns.entries()) {
+      let value = gantt.getLightboxSection('Campaign').getValue();
+      for (let [i, user] of this.AllCampaigns.entries()) {
         if (user.key == value) {
-          this.selectedCampaigns.splice(i, 1);
+          this.AllCampaigns.splice(i, 1);
+          break;
         }
       }
-      console.log(this.selectedCampaigns)
+      let count = this.AllCampaigns.filter(c => c.key == value).length;
+      if (count == 0) {
+        for (let [i, user] of this.selectedCampaigns.entries()) {
+          if (user.key == value) {
+            this.selectedCampaigns.splice(i, 1);
+          }
+        }
+      }
+      console.log("all",this.AllCampaigns)
+      console.log("selected",this.selectedCampaigns)
       return true;
     }, { thisObject: this })
+
+
   }
 
 
@@ -144,6 +161,7 @@ export class GanComponent implements OnInit {
 
   seeOrder() {
     var elem = <HTMLInputElement>document.getElementById('order');
+
     if (elem.value == "Expand") {
       gantt.eachTask(function (task) {
         if (task.parent) {
@@ -151,30 +169,26 @@ export class GanComponent implements OnInit {
           if (parent.type == "project") {
             parent.render = 'split'
           }
-
         }
       })
-      
       gantt.render();
       elem.innerHTML = "Collapse";
       elem.value = "Collapse";
-    }
-    else{
-        gantt.eachTask(function (task) {
+
+    } else {
+
+      gantt.eachTask(function (task) {
         if (task.parent) {
           let parent = gantt.getTask(task.parent);
           if (parent.type == "project") {
             parent.render = ''
           }
-
         }
       })
-      
       gantt.render();
       elem.innerHTML = "Expand";
       elem.value = "Expand";
     }
- 
   }
 
 }

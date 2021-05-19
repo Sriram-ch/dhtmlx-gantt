@@ -58,7 +58,7 @@ opacity:0.4;
 	color:#B3FFB0;
 }
 
-.gantt_resizer_x .gantt_resizer_x{
+/* .gantt_resizer_x .gantt_resizer_x{
 	position: absolute;
     width: 20px;
     height: 100%;
@@ -67,7 +67,7 @@ opacity:0.4;
     left: 0;
     z-index: 1;
 	background:white;
-}
+} */
 
 /* .gantt_grid_data .gantt_row.odd:hover, .gantt_grid_data .gantt_row:hover,
 .gantt_grid_data .gantt_row.gantt_selected,
@@ -90,3 +90,9 @@ opacity:0.4;
     background: rgba(183,142,185,0.1) !important;
     margin-top: 2px;
 }
+
+
+/* .gantt_split_parent{
+	pointer-events: initial;
+	opacity: initial;
+  } */

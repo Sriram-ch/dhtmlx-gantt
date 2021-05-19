@@ -9,15 +9,13 @@ import { HandleError } from './service-helper';
 export class TaskService {
 	private taskUrl = 'http://localhost:4200/api/task';
 
-	constructor(private http: HttpClient, private httpClient: HttpClient) { }
+	constructor(private http: HttpClient) { }
 
-	get(): Promise<Task[]> {
+	get(): Promise<Task[]>{
 		return this.http.get(this.taskUrl)
 			.toPromise()
 			.catch(HandleError);
 	}
-
-
 
 	insert(task: Task): Promise<Task> {
 		return this.http.post(this.taskUrl, task)
