@@ -16,8 +16,8 @@ import { gantt } from 'dhtmlx-gantt';
 export class GanComponent implements OnInit {
   @ViewChild('gantt_here', { static: true }) ganttContainer: ElementRef;
 
-  selectedCampaigns: [] = [];
-  AllCampaigns: [] = [];
+  private selectedCampaigns: [] = [];
+  private AllCampaigns: [] = [];
 
   constructor(private taskService: TaskService, private linkService: LinkService) { }
 
@@ -30,8 +30,6 @@ export class GanComponent implements OnInit {
 
     gantt.locale.labels.section_Campaign = "Campaign";
     gantt.locale.labels.section_split = "See Order";
-    gantt.config.start_date = new Date(2021,3,11)
-    gantt.config.end_date = new Date(2021,3,24)
 
     gantt.config.columns = [
 
@@ -43,8 +41,8 @@ export class GanComponent implements OnInit {
     ];
 
     gantt.config.lightbox.project_sections = [
-      { name: "description", height: 70, map_to: "text", type: "textarea" },
-      { name: "Campaign", label: 'Campaign', height: 40, type: "textarea", map_to: "Campaign", options: this.selectedCampaigns },
+      //{ name: "description", height: 70, map_to: "text", type: "textarea" },
+      { name: "Campaign", label: 'Campaign', height: 40, type: "textarea", id: 'hello', map_to: "Campaign", options: this.selectedCampaigns },
       {
         name: "split", type: "checkbox", map_to: "render", options: [
           { key: "split", label: "" }
@@ -54,7 +52,7 @@ export class GanComponent implements OnInit {
     ];
 
     gantt.config.lightbox.sections = [
-      { name: "description", height: 70, map_to: "text", type: "textarea" },
+      //{ name: "description", height: 70, map_to: "text", type: "textarea" },
       { name: "Campaign", label: 'Campaign', height: 40, type: "textarea", map_to: "Campaign", options: this.selectedCampaigns },
       { name: "time", type: "duration", map_to: "auto" }
     ];
@@ -65,7 +63,7 @@ export class GanComponent implements OnInit {
       multiselect: true,
       auto_scheduling: true,
       grouping: true,
-      undo:true
+      undo: true,
     });
     gantt.config.auto_scheduling = true;
     gantt.config.drag_multiple = true;
@@ -96,74 +94,78 @@ export class GanComponent implements OnInit {
     const zoomModule = gantt.ext.zoom;
 
     zoomModule.init({
-        levels: [
-          {
-            name:"hour",
-            scale_height: 27,
-            min_column_width:30,
-            scales:[
-              {unit:"day", format:"%d %M"},
-              {unit:"hour", format:"%H"},
-            ]
-            },
-          {
-            name:"day",
-            scale_height: 27,
-            min_column_width:80,
-            scales:[
-                {unit: "day", step: 1, format: "%d %M"}
-            ]
-          },
-          {
-             name:"week",
-             scale_height: 50,
-             min_column_width:50,
-             scales:[
-              {unit: "week", step: 1, format: function (date) {
-               var dateToStr = gantt.date.date_to_str("%d %M");
-               var endDate = gantt.date.add(date, -6, "day");
-               var weekNum = gantt.date.date_to_str("%W")(date);
-               return "#" + weekNum + ", " + dateToStr(date) + " - " + dateToStr(endDate);
-               }},
-               {unit: "day", step: 1, format: "%j %D"}
-             ]
-           },
-           {
-             name:"month",
-             scale_height: 50,
-             min_column_width:120,
-             scales:[
-                {unit: "month", format: "%F, %Y"},
-                {unit: "week", format: "Week #%W"}
-             ]
-            },
+      levels: [
+        {
+          name: "hour",
+          scale_height: 27,
+          min_column_width: 30,
+          scales: [
+            { unit: "day", format: "%d %M" },
+            { unit: "hour", format: "%H" },
+          ]
+        },
+        {
+          name: "day",
+          scale_height: 27,
+          min_column_width: 80,
+          scales: [
+            { unit: "day", step: 1, format: "%d %M" }
+          ]
+        },
+        {
+          name: "week",
+          scale_height: 50,
+          min_column_width: 50,
+          scales: [
             {
-             name:"quarter",
-             height: 50,
-             min_column_width:90,
-             scales:[
-              {unit: "month", step: 1, format: "%M"},
-              {
-               unit: "quarter", step: 1, format: function (date) {
+              unit: "week", step: 1, format: function (date) {
+                var dateToStr = gantt.date.date_to_str("%d %M");
+                var endDate = gantt.date.add(date, -6, "day");
+                var weekNum = gantt.date.date_to_str("%W")(date);
+                return "#" + weekNum + ", " + dateToStr(date) + " - " + dateToStr(endDate);
+              }
+            },
+            { unit: "day", step: 1, format: "%j %D" }
+          ]
+        },
+        {
+          name: "month",
+          scale_height: 50,
+          min_column_width: 120,
+          scales: [
+            { unit: "month", format: "%F, %Y" },
+            { unit: "week", format: "Week #%W" }
+          ]
+        },
+        {
+          name: "quarter",
+          height: 50,
+          min_column_width: 90,
+          scales: [
+            { unit: "month", step: 1, format: "%M" },
+            {
+              unit: "quarter", step: 1, format: function (date) {
                 var dateToStr = gantt.date.date_to_str("%M");
                 var endDate = gantt.date.add(gantt.date.add(date, 3, "month"), -1, "day");
                 return dateToStr(date) + " - " + dateToStr(endDate);
-               }
-             }
-            ]},
-            {
-              name:"year",
-              scale_height: 50,
-              min_column_width: 30,
-              scales:[
-                {unit: "year", step: 1, format: "%Y"}
-            ]}
-        ],
-        useKey: "ctrlKey",
-		    trigger: "wheel",
-		    element: function(){
-		      return gantt.$root.querySelector(".gantt_task");
-		    }
+              }
+            }
+          ]
+        },
+        {
+          name: "year",
+          scale_height: 50,
+          min_column_width: 30,
+          scales: [
+            { unit: "year", step: 1, format: "%Y" }
+          ]
+        }
+      ],
+      useKey: "ctrlKey",
+      trigger: "wheel",
+      element: function () {
+        return gantt.$root.querySelector(".gantt_task");
+      }
     });
 
     zoomModule.setLevel("day");
@@ -178,49 +180,91 @@ export class GanComponent implements OnInit {
 
     gantt.attachEvent("onLightboxSave", function (id, task, is_new) {
       var value = gantt.getLightboxSection('Campaign').getValue();
-      var json = { key: value, label: value }
-      var filtered = this.selectedCampaigns.filter(c => c.key == value);
-      if (filtered.length == 0) {
-        this.selectedCampaigns.push(json);
+      if (value != "") {
+        var json = { key: value, label: value }
+        var filtered = this.selectedCampaigns.filter(c => c.key == value);
+        if (filtered.length == 0) {
+          this.selectedCampaigns.push(json);
+        }
+        this.AllCampaigns.push(json);
+        // console.log("all", this.AllCampaigns)
+        // console.log("selected", this.selectedCampaigns)
+
+        // var taskId = gantt.addTask({
+        //   text:value,
+        //   type:"project",
+        //   Campaign:value,
+        //   index:1
+        // })
+        // gantt.getTask(id).parent = taskId;
+        // gantt.render();
+        return true;
+      } else {
+        return true;
       }
-      this.AllCampaigns.push(json);
-      console.log("all",this.AllCampaigns)
-      console.log("selected",this.selectedCampaigns)
-      return true;
     }, { thisObject: this })
 
-    gantt.attachEvent("onLightboxDelete", function (id) {
-      let value = gantt.getLightboxSection('Campaign').getValue();
-      for (let [i, user] of this.AllCampaigns.entries()) {
-        if (user.key == value) {
-          this.AllCampaigns.splice(i, 1);
-          break;
-        }
-      }
-      let count = this.AllCampaigns.filter(c => c.key == value).length;
-      if (count == 0) {
-        for (let [i, user] of this.selectedCampaigns.entries()) {
+    gantt.attachEvent("onLightbox", function (task_id){
+      var textarea = document.querySelector("textarea");
+      var value = gantt.getLightboxSection('Campaign').getValue();
+      const allcamp = this.AllCampaigns;
+      const selectcamp = this.selectedCampaigns;
+      textarea.onchange = function(){
+        for (let [i, user] of allcamp.entries()) {
           if (user.key == value) {
-            this.selectedCampaigns.splice(i, 1);
+            allcamp.splice(i, 1);
+            break;
+          }
+        }
+        let count = allcamp.filter(c => c.key == value).length;
+        if (count == 0) {
+          for (let [i, user] of selectcamp.entries()) {
+            if (user.key == value) {
+              selectcamp.splice(i, 1);
+            }
           }
         }
       }
-      console.log("all",this.AllCampaigns)
-      console.log("selected",this.selectedCampaigns)
-      return true;
-    }, { thisObject: this })
+    }, {thisObject: this});
 
-    gantt.attachEvent("onTaskDrag", function(id, mode, task, original){
-      if (+task.start_date <= +gantt.date.add(gantt.config.start_date, 1, gantt.config.duration_unit)) {
-        gantt.config.start_date = gantt.date.add(gantt.config.start_date, -1, gantt.config.duration_unit);
-        gantt.render()
+    gantt.attachEvent("onLightboxDelete", function(id, item){
+      gantt.attachEvent("onAfterTaskDelete", function (id) {
+        let value = gantt.getLightboxSection('Campaign').getValue();
+        for (let [i, user] of this.AllCampaigns.entries()) {
+          if (user.key == value) {
+            this.AllCampaigns.splice(i, 1);
+            break;
+          }
+        }
+        let count = this.AllCampaigns.filter(c => c.key == value).length;
+        if (count == 0) {
+          for (let [i, user] of this.selectedCampaigns.entries()) {
+            if (user.key == value) {
+              this.selectedCampaigns.splice(i, 1);
+            }
+          }
+        }
+        // console.log("all", this.AllCampaigns)
+        // console.log("selected", this.selectedCampaigns)
+        return true;
+      }, { thisObject: this })
+      return true
+    }, {thisObject: this})
+
+    gantt.attachEvent("onTaskDrag", function(id, mode, task, original){    
+      var formatFunc = gantt.date.date_to_str("%d/%m/%Y");
+    if ( formatFunc(task.start_date)==formatFunc(gantt.getState().min_date) ){
+        gantt.getState().min_date = gantt.date.add(gantt.getState().min_date, -1, 'day');
+        gantt.render();
+        gantt.showDate(gantt.getState().min_date);        
+      } else if ( formatFunc(task.end_date)==formatFunc(gantt.getState().max_date) ){
+        gantt.getState().max_date = gantt.date.add(gantt.getState().max_date, 2, 'day');
+        gantt.render();
+        gantt.showDate(gantt.getState().max_date);  
       }
-      if (+task.end_date >= +gantt.date.add(gantt.config.end_date, -1, gantt.config.duration_unit)) {
-        gantt.config.end_date = gantt.date.add(gantt.config.end_date, 1, gantt.config.duration_unit);
-        gantt.render()
-      }
-    
-    }, {thisObject:this});
+  }, {thisObject:this});
+
+
   }
 
 
@@ -244,6 +288,11 @@ export class GanComponent implements OnInit {
         group_id: "key",
         group_text: "label"
       });
+      gantt.eachTask(function(task){
+        if (task.$virtual){
+          task.readonly = false;
+        }
+      })
     }
     else gantt.groupBy(false);
   }
@@ -280,19 +329,19 @@ export class GanComponent implements OnInit {
     }
   }
 
-  zoomIn(){
+  zoomIn() {
     gantt.ext.zoom.zoomIn();
   }
 
-  zoomOut(){
+  zoomOut() {
     gantt.ext.zoom.zoomOut();
   }
 
-  undo(){
+  undo() {
     gantt.undo();
   }
 
-  redo(){
+  redo() {
     gantt.redo();
   }
 

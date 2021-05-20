@@ -4,8 +4,8 @@ import { gantt } from 'gantt_7.1.1_enterprise/codebase/dhtmlxgantt';
 export class InMemoryDataService implements InMemoryDbService {
 	createDb() {
 		let task = [
-
-			{ id: 1, procurement: 'PRO2893', text: 'PRO2893', start_date: "2021-04-12 00:00", building: 'Building01', product: 'Metamizol Na', Campaign: '', type: "project", render: '' },
+			
+			{ id: 1, procurement: 'PRO2893', text: 'PRO2893',  building: 'Building01', product: 'Metamizol Na', Campaign: '', type: "project", render: '',parent:'' },
 			{ id: 2, procurement: 'PRO2894', text: 'PRO2894', start_date: '2021-04-13 00:00',  building: 'Building01', product: 'Metamizol Na', Campaign: '', type: "project", render: '' },
 			{
 				id: 3, procurement: 'PRO2895', text: 'PRO2895', start_date: '2021-04-14 00:00', building: 'Building01', product: 'Metamizol Na', Campaign: '', type: "project", render: ''

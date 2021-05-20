@@ -96,3 +96,12 @@ opacity:0.4;
 	pointer-events: initial;
 	opacity: initial;
   } */
+
+  .campaign_task{
+    border:2px solid #BFC518;
+    color:#6ba8e3;
+    background: #F2F67E;
+}
+.campaign_task .gantt_task_progress{
+    background:#D9DF29;
+}
