@@ -30,13 +30,17 @@ export class GanComponent implements OnInit {
 
     gantt.locale.labels.section_Campaign = "Campaign";
     gantt.locale.labels.section_split = "See Order";
+    gantt.config.start_date = new Date(2021,3,11)
+    gantt.config.end_date = new Date(2021,3,24)
 
     gantt.config.columns = [
 
       { name: 'building', label: 'BUILDING', tree: true, align: 'center' },
       { name: 'product', label: 'PRODUCT', align: 'center', width: '*' },
       { name: 'Campaign', label: 'CAMPAIGN', align: 'center' },
-      { name: 'procurement', label: 'PROC ORDER', align: 'center' }];
+      { name: 'procurement', label: 'PROC ORDER', align: 'center' },
+      //{name:"add",label:"",width:35 }
+    ];
 
     gantt.config.lightbox.project_sections = [
       { name: "description", height: 70, map_to: "text", type: "textarea" },
@@ -60,7 +64,8 @@ export class GanComponent implements OnInit {
     gantt.plugins({
       multiselect: true,
       auto_scheduling: true,
-      grouping: true
+      grouping: true,
+      undo:true
     });
     gantt.config.auto_scheduling = true;
     gantt.config.drag_multiple = true;
@@ -88,6 +93,80 @@ export class GanComponent implements OnInit {
       if (!gantt.isWorkTime(date)) return "weekend";
     };
 
+    const zoomModule = gantt.ext.zoom;
+
+    zoomModule.init({
+        levels: [
+          {
+            name:"hour",
+            scale_height: 27,
+            min_column_width:30,
+            scales:[
+              {unit:"day", format:"%d %M"},
+              {unit:"hour", format:"%H"},
+            ]
+            },
+          {
+            name:"day",
+            scale_height: 27,
+            min_column_width:80,
+            scales:[
+                {unit: "day", step: 1, format: "%d %M"}
+            ]
+          },
+          {
+             name:"week",
+             scale_height: 50,
+             min_column_width:50,
+             scales:[
+              {unit: "week", step: 1, format: function (date) {
+               var dateToStr = gantt.date.date_to_str("%d %M");
+               var endDate = gantt.date.add(date, -6, "day");
+               var weekNum = gantt.date.date_to_str("%W")(date);
+               return "#" + weekNum + ", " + dateToStr(date) + " - " + dateToStr(endDate);
+               }},
+               {unit: "day", step: 1, format: "%j %D"}
+             ]
+           },
+           {
+             name:"month",
+             scale_height: 50,
+             min_column_width:120,
+             scales:[
+                {unit: "month", format: "%F, %Y"},
+                {unit: "week", format: "Week #%W"}
+             ]
+            },
+            {
+             name:"quarter",
+             height: 50,
+             min_column_width:90,
+             scales:[
+              {unit: "month", step: 1, format: "%M"},
+              {
+               unit: "quarter", step: 1, format: function (date) {
+                var dateToStr = gantt.date.date_to_str("%M");
+                var endDate = gantt.date.add(gantt.date.add(date, 3, "month"), -1, "day");
+                return dateToStr(date) + " - " + dateToStr(endDate);
+               }
+             }
+            ]},
+            {
+              name:"year",
+              scale_height: 50,
+              min_column_width: 30,
+              scales:[
+                {unit: "year", step: 1, format: "%Y"}
+            ]}
+        ],
+        useKey: "ctrlKey",
+		    trigger: "wheel",
+		    element: function(){
+		      return gantt.$root.querySelector(".gantt_task");
+		    }
+    });
+
+    zoomModule.setLevel("day");
 
     gantt.init(this.ganttContainer.nativeElement);
 
@@ -131,7 +210,17 @@ export class GanComponent implements OnInit {
       return true;
     }, { thisObject: this })
 
-
+    gantt.attachEvent("onTaskDrag", function(id, mode, task, original){
+      if (+task.start_date <= +gantt.date.add(gantt.config.start_date, 1, gantt.config.duration_unit)) {
+        gantt.config.start_date = gantt.date.add(gantt.config.start_date, -1, gantt.config.duration_unit);
+        gantt.render()
+      }
+      if (+task.end_date >= +gantt.date.add(gantt.config.end_date, -1, gantt.config.duration_unit)) {
+        gantt.config.end_date = gantt.date.add(gantt.config.end_date, 1, gantt.config.duration_unit);
+        gantt.render()
+      }
+    
+    }, {thisObject:this});
   }
 
 
@@ -189,6 +278,22 @@ export class GanComponent implements OnInit {
       elem.innerHTML = "Expand";
       elem.value = "Expand";
     }
+  }
+
+  zoomIn(){
+    gantt.ext.zoom.zoomIn();
+  }
+
+  zoomOut(){
+    gantt.ext.zoom.zoomOut();
+  }
+
+  undo(){
+    gantt.undo();
+  }
+
+  redo(){
+    gantt.redo();
   }
 
 }
