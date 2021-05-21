@@ -262,6 +262,11 @@ export class GanComponent implements OnInit {
         gantt.render();
         gantt.showDate(gantt.getState().max_date);  
       }
+      if (task.type == gantt.config.types.project){
+        gantt.eachTask(function(child){
+          child.constraint_date = null;
+        },task.id)
+      }
   }, {thisObject:this});
 
 
