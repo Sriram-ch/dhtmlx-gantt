@@ -284,6 +284,8 @@ export class GanComponent implements OnInit {
               task.Campaign = parent.Campaign
             }
             task.procurement = parent.procurement;
+            task.building = parent.building;
+            task.product = parent.product;
           }
         }
       })
