@@ -70,6 +70,16 @@ export class GanComponent implements OnInit {
     gantt.config.drag_project = true;
     gantt.config.work_time = true;
 
+    //adding holidays
+    var holidays = ["14-04-2021"]
+
+    var format_date = gantt.date.str_to_date("%d-%m-%Y");
+
+    for (var i = 0; i < holidays.length; i++) {
+      var converted_date = format_date(holidays[i])
+      gantt.setWorkTime({ date: converted_date, hours: false })
+    }
+
     gantt.templates.grid_row_class =
       gantt.templates.task_row_class = function (start, end, task) {
         if (task.$virtual)
@@ -204,12 +214,12 @@ export class GanComponent implements OnInit {
       }
     }, { thisObject: this })
 
-    gantt.attachEvent("onLightbox", function (task_id){
+    gantt.attachEvent("onLightbox", function (task_id) {
       var textarea = document.querySelector("textarea");
       var value = gantt.getLightboxSection('Campaign').getValue();
       const allcamp = this.AllCampaigns;
       const selectcamp = this.selectedCampaigns;
-      textarea.onchange = function(){
+      textarea.onchange = function () {
         for (let [i, user] of allcamp.entries()) {
           if (user.key == value) {
             allcamp.splice(i, 1);
@@ -225,9 +235,9 @@ export class GanComponent implements OnInit {
           }
         }
       }
-    }, {thisObject: this});
+    }, { thisObject: this });
 
-    gantt.attachEvent("onLightboxDelete", function(id, item){
+    gantt.attachEvent("onLightboxDelete", function (id, item) {
       gantt.attachEvent("onAfterTaskDelete", function (id) {
         let value = gantt.getLightboxSection('Campaign').getValue();
         for (let [i, user] of this.AllCampaigns.entries()) {
@@ -249,25 +259,25 @@ export class GanComponent implements OnInit {
         return true;
       }, { thisObject: this })
       return true
-    }, {thisObject: this})
+    }, { thisObject: this })
 
-    gantt.attachEvent("onTaskDrag", function(id, mode, task, original){    
+    gantt.attachEvent("onTaskDrag", function (id, mode, task, original) {
       var formatFunc = gantt.date.date_to_str("%d/%m/%Y");
-    if ( formatFunc(task.start_date)==formatFunc(gantt.getState().min_date) ){
+      if (formatFunc(task.start_date) == formatFunc(gantt.getState().min_date)) {
         gantt.getState().min_date = gantt.date.add(gantt.getState().min_date, -1, 'day');
         gantt.render();
-        gantt.showDate(gantt.getState().min_date);        
-      } else if ( formatFunc(task.end_date)==formatFunc(gantt.getState().max_date) ){
+        gantt.showDate(gantt.getState().min_date);
+      } else if (formatFunc(task.end_date) == formatFunc(gantt.getState().max_date)) {
         gantt.getState().max_date = gantt.date.add(gantt.getState().max_date, 2, 'day');
         gantt.render();
-        gantt.showDate(gantt.getState().max_date);  
+        gantt.showDate(gantt.getState().max_date);
       }
-      if (task.type == gantt.config.types.project){
-        gantt.eachTask(function(child){
+      if (task.type == gantt.config.types.project) {
+        gantt.eachTask(function (child) {
           child.constraint_date = null;
-        },task.id)
+        }, task.id)
       }
-  }, {thisObject:this});
+    }, { thisObject: this });
 
 
   }
@@ -295,8 +305,8 @@ export class GanComponent implements OnInit {
         group_id: "key",
         group_text: "label"
       });
-      gantt.eachTask(function(task){
-        if (task.$virtual){
+      gantt.eachTask(function (task) {
+        if (task.$virtual) {
           task.readonly = false;
         }
       })
