@@ -1,45 +1,43 @@
-
-
 <div class="container-fluid"
-style="background-color: #fff;height: 100%;width:100%;padding: 0;overflow-y: hidden;overflow-x: hidden;">
-<app-header></app-header>
-<br>
-<br>
+    style="background-color: #fff;height: 100%;width:100%;padding: 0;overflow-y: hidden;overflow-x: hidden;">
+    <app-header></app-header>
+    <br>
+    <br>
 
-<nav aria-label="breadcrumb" >
-    <ol class="breadcrumb" >
-        <li class="breadcrumb-item">
-            
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+
                 <fa-icon [icon]="['fas', 'home']" size="md" [fixedWidth]="true" style="color:#004A7F;cursor: pointer;">
                 </fa-icon>
-            
-        <li class="breadcrumb-item" aria-current="page" style="font-weight: 500;color: black;">
-           Production Plan </li>
-        
-            
+
+            <li class="breadcrumb-item" aria-current="page" style="font-weight: 500;color: black;">
+                Production Plan </li>
+
+
             <li class="navbar-nav ml-auto" style="margin-bottom:-1rem">
                 <div class="row">
                     <div style=" border-radius: .25rem;margin-right:8px;">
                         <fa-icon [icon]="['fas', 'cog']" size="lg" [fixedWidth]="true" style="color:#ED7D31;">
                         </fa-icon>&nbsp;
-                     </div>
-                 </div>
+                    </div>
+                </div>
             </li>
-    </ol>
-</nav>
-<div style="
-width: calc(100% - 20px);box-shadow: 1px 2px 3px 1px #aaaaaa;margin-left:10px;" >
-<input type='button' id='Campaign' (click)="showGroups()" value="Tree">
-<input type='button' id='Campaign' (click)="showGroups('Campaign')" value="Group by Campaign">
-<input type='button' id='undo' (click)="undo()" value="Undo" style="margin-left:10px">
-<input type='button' id='undo' (click)="redo()" value="Redo" >
-<input type="button" id='order' (click)="seeOrder('this')" value="Expand" style="float: right;">
-<input type='button' id='zoom' (click)="zoomOut()" value="ZoomOut" style="float: right;margin-right: 10px;">
-<input type='button' id='zoom' (click)="zoomIn()" value="ZoomIn" style="float: right;">
+        </ol>
+    </nav>
+    <div style="
+width: calc(100% - 20px);box-shadow: 1px 2px 3px 1px #aaaaaa;margin-left:10px;">
+        <input type='button' id='Campaign' (click)="showGroups()" value="Tree">
+        <input type='button' id='Campaign' (click)="showGroups('Campaign')" value="Group by Campaign">
+        <input type='button' id='undo' (click)="undo()" value="Undo" style="margin-left:10px">
+        <input type='button' id='undo' (click)="redo()" value="Redo">
+        <input type="button" id='order' (click)="seeOrder('this')" value="Expand" style="float: right;">
+        <input type='button' id='zoom' (click)="zoomOut()" value="ZoomOut" style="float: right;margin-right: 10px;">
+        <input type='button' id='zoom' (click)="zoomIn()" value="ZoomIn" style="float: right;">
 
 
-<div  #gantt_here class='gantt-chart'></div>
-</div>
-<app-footer></app-footer>
-<router-outlet></router-outlet>
+        <div #gantt_here class='gantt-chart' ></div>
+    </div>
+    <app-footer></app-footer>
+    <router-outlet></router-outlet>
 </div>

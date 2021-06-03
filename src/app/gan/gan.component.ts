@@ -16,7 +16,14 @@ import { gantt } from 'dhtmlx-gantt';
 export class GanComponent implements OnInit {
   @ViewChild('gantt_here', { static: true }) ganttContainer: ElementRef;
 
-  private selectedCampaigns: [] = [];
+  private selectedCampaigns = [
+    {key:'Metamizol-Na-C19851',label:'Metamizol-Na-C19851'},
+    {key:'Metamizol-Na-C19854',label:'Metamizol-Na-C19854'},
+    {key:'Metamizol-Mg-C19852',label:'Metamizol-Mg-C19852'},
+    {key:'Metamizol-Mg-C19855',label:'Metamizol-Mg-C19855'},
+    {key:'Rifamycin-C19853',label:'Rifamycin-C19853'},
+
+  ];
   private AllCampaigns: [] = [];
 
   constructor(private taskService: TaskService, private linkService: LinkService) { }
@@ -24,7 +31,8 @@ export class GanComponent implements OnInit {
   ngOnInit() {
     gantt.config.xml_date = '%Y-%m-%d %H:%i';
     //gantt.config.autofit= true;
-    gantt.config.grid_width = 450;
+    gantt.config.grid_width = 480;
+    gantt.config.row_height = 30;
     gantt.config.order_branch = 'marker';
     gantt.config.sort = true;
 
@@ -34,9 +42,9 @@ export class GanComponent implements OnInit {
     gantt.config.columns = [
 
       { name: 'building', label: 'BUILDING', tree: true, align: 'center' },
-      { name: 'product', label: 'PRODUCT', align: 'center', width: '*' },
-      { name: 'Campaign', label: 'CAMPAIGN', align: 'center' },
-      { name: 'procurement', label: 'PROC ORDER', align: 'center' },
+      { name: 'product', label: 'PRODUCT', align: 'center'},
+      { name: 'Campaign', label: 'CAMPAIGN', align: 'center', width: '*'  },
+      { name: 'procurement', label: 'ORDER', align: 'center', width:100},
       //{name:"add",label:"",width:35 }
     ];
 
@@ -71,7 +79,7 @@ export class GanComponent implements OnInit {
     gantt.config.work_time = true;
 
     //adding holidays
-    var holidays = ["14-04-2021"]
+    var holidays = ["21-04-2021"]
 
     var format_date = gantt.date.str_to_date("%d-%m-%Y");
 
@@ -180,6 +188,8 @@ export class GanComponent implements OnInit {
 
     zoomModule.setLevel("day");
 
+ 
+
     gantt.init(this.ganttContainer.nativeElement);
 
     Promise.all([this.taskService.get(), this.linkService.get()])
@@ -279,7 +289,6 @@ export class GanComponent implements OnInit {
       }
     }, { thisObject: this });
 
-
   }
 
 
@@ -361,5 +370,7 @@ export class GanComponent implements OnInit {
   redo() {
     gantt.redo();
   }
+
+  
 
 }
