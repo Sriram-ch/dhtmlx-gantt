@@ -85,7 +85,7 @@ export class GanComponent implements OnInit {
 
     gantt.config.lightbox.project_sections = [
       //{ name: "description", height: 70, map_to: "text", type: "textarea" },
-      { name: "Campaign", label: 'Campaign', height: 40, type: "textarea", id: 'hello', map_to: "Campaign", options: this.selectedCampaigns },
+      { name: "Campaign", label: 'Campaign', height: 40, type: "textarea", id: 'hello', map_to: "Campaign" },
       {
         name: "split", type: "checkbox", map_to: "render", options: [
           { key: "split", label: "" }
@@ -96,7 +96,7 @@ export class GanComponent implements OnInit {
 
     gantt.config.lightbox.sections = [
       //{ name: "description", height: 70, map_to: "text", type: "textarea" },
-      { name: "Campaign", label: 'Campaign', height: 40, type: "textarea", map_to: "Campaign", options: this.selectedCampaigns },
+      { name: "Campaign", label: 'Campaign', height: 40, type: "textarea", map_to: "Campaign"},
       { name: "time", type: "duration", map_to: "auto" }
     ];
 
