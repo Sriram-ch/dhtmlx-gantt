@@ -17,48 +17,48 @@ export class GanComponent implements OnInit {
   @ViewChild('gantt_here', { static: true }) ganttContainer: ElementRef;
 
   private selectedCampaigns = [
-    {key:'Metamizol-Na-C19851',label:'Metamizol-Na-C19851'},
-    {key:'Metamizol-Na-C19854',label:'Metamizol-Na-C19854'},
-    {key:'Metamizol-Mg-C19852',label:'Metamizol-Mg-C19852'},
-    {key:'Metamizol-Mg-C19855',label:'Metamizol-Mg-C19855'},
-    {key:'Rifamycin-C19853',label:'Rifamycin-C19853'},
+    { key: 'Metamizol-Na-C19851', label: 'Metamizol-Na-C19851' },
+    { key: 'Metamizol-Na-C19854', label: 'Metamizol-Na-C19854' },
+    { key: 'Metamizol-Mg-C19852', label: 'Metamizol-Mg-C19852' },
+    { key: 'Metamizol-Mg-C19855', label: 'Metamizol-Mg-C19855' },
+    { key: 'Rifamycin-C19853', label: 'Rifamycin-C19853' },
 
   ];
   private AllCampaigns: [] = [];
 
   private data = {
-    tasks:[
-      { id: 1, procurement: 'PR754681', text: 'PR754681',  building: 'Building01', product: 'Metamizol Na', Campaign: 'Metamizol-Na-C19851', start_date: "2021-04-12 00:00",duration:7},
-    { id: 2, procurement: 'PR754682', text: 'PR754682',  building: 'Building01', product: 'Metamizol Na', Campaign: 'Metamizol-Na-C19851',  start_date: "2021-04-13 00:00",duration:7},
-    { id: 3, procurement: 'PR754683', text: 'PR754683',  building: 'Building01', product: 'Metamizol Na', Campaign: 'Metamizol-Na-C19851', start_date: "2021-04-15 00:00" ,duration:7},
-    { id: 4, procurement: 'PR754684', text: 'PR754684',  building: 'Building01', product: 'Metamizol Na', Campaign: 'Metamizol-Na-C19851', start_date: "2021-04-14 00:00",duration:7 },
-    { id: 5, procurement: 'PR754685', text: 'PR754685',  building: 'Building01', product: 'Metamizol Na', Campaign: 'Metamizol-Na-C19854', start_date: "2021-04-16 00:00",duration:7 },
-    { id: 6, procurement: 'PR754686', text: 'PR754686',  building: 'Building01', product: 'Metamizol Na', Campaign: 'Metamizol-Na-C19854', start_date: "2021-04-12 00:00",duration:7},
-    { id: 7, procurement: 'PR754687', text: 'PR754687',  building: 'Building01', product: 'Metamizol Na', Campaign: 'Metamizol-Na-C19854', start_date: "2021-04-13 00:00",duration:7},
-    { id: 8, procurement: 'PR754688', text: 'PR754688',  building: 'Building01', product: 'Metamizol Na', Campaign: 'Metamizol-Na-C19854', start_date: "2021-04-15 00:00" ,duration:7 },
-    { id: 9, procurement: 'PR754689', text: 'PR754689',  building: 'Building01', product: 'Metamizol Na', Campaign: '', start_date: "2021-04-14 00:00",duration:7 },
-    { id: 10, procurement: 'PR754690', text: 'PR754690',  building: 'Building01', product: 'Metamizol Na', Campaign: '', start_date: "2021-04-16 00:00" ,duration:7 },
-    { id: 11, procurement: 'PR754691', text: 'PR754691',  building: 'Building01', product: 'Metamizol Mg', Campaign: 'Metamizol-Mg-C19852', start_date: "2021-04-15 00:00" ,duration:7 },
-    { id: 12, procurement: 'PR754692', text: 'PR754692',  building: 'Building01', product: 'Metamizol Mg', Campaign: 'Metamizol-Mg-C19852', start_date: "2021-04-19 00:00",duration:7 },
-    { id: 13, procurement: 'PR754693', text: 'PR754693',  building: 'Building01', product: 'Metamizol Mg', Campaign: 'Metamizol-Mg-C19852', start_date: "2021-04-20 00:00" ,duration:7 },
-    { id: 14, procurement: 'PR754694', text: 'PR754694',  building: 'Building01', product: 'Metamizol Mg', Campaign: 'Metamizol-Mg-C19852', start_date: "2021-04-22 00:00",duration:7 },
-    { id: 15, procurement: 'PR754695', text: 'PR754695',  building: 'Building01', product: 'Metamizol Mg', Campaign: 'Metamizol-Mg-C19855', start_date: "2021-04-19 00:00",duration:7 },
-    { id: 16, procurement: 'PR754696', text: 'PR754696',  building: 'Building01', product: 'Metamizol Mg', Campaign: 'Metamizol-Mg-C19855', start_date: "2021-04-12 00:00",duration:7},
-    { id: 17, procurement: 'PR754697', text: 'PR754697',  building: 'Building01', product: 'Metamizol Mg', Campaign: 'Metamizol-Mg-C19855', start_date: "2021-04-13 00:00",duration:7},
-    { id: 18, procurement: 'PR754698', text: 'PR754698',  building: 'Building01', product: 'Metamizol Mg', Campaign: 'Metamizol-Mg-C19855', start_date: "2021-04-15 00:00" ,duration:7},
-    { id: 19, procurement: 'PR754699', text: 'PR754699',  building: 'Building01', product: 'Metamizol Mg', Campaign: '', start_date: "2021-04-14 00:00" ,duration:7},
-    { id: 20, procurement: 'PR754700', text: 'PR754700',  building: 'Building01', product: 'Metamizol Mg', Campaign: '', start_date: "2021-04-16 00:00",duration:7},
-    { id: 21, procurement: 'PR754701', text: 'PR754701',  building: 'Building02', product: 'Rifamycin', Campaign: 'Rifamycin-C19853', start_date: "2021-04-12 00:00",duration:7},
-    { id: 22, procurement: 'PR754702', text: 'PR754702',  building: 'Building02', product: 'Rifamycin', Campaign: 'Rifamycin-C19853', start_date: "2021-04-13 00:00",duration:7},
-    { id: 23, procurement: 'PR754703', text: 'PR754703',  building: 'Building02', product: 'Rifamycin', Campaign: 'Rifamycin-C19853', start_date: "2021-04-15 00:00",duration:7},
-    { id: 24, procurement: 'PR754704', text: 'PR754704',  building: 'Building02', product: 'Rifamycin', Campaign: 'Rifamycin-C19853', start_date: "2021-04-14 00:00" ,duration:7},
-    { id: 25, procurement: 'PR754705', text: 'PR754705',  building: 'Building02', product: 'Rifamycin', Campaign: 'Rifamycin-C19853', start_date: "2021-04-16 00:00",duration:7},
-    { id: 26, procurement: 'PR754706', text: 'PR754706',  building: 'Building02', product: 'Rifamycin', Campaign: 'Rifamycin-C19853', start_date: "2021-04-12 00:00",duration:7},
-    { id: 27, procurement: 'PR754707', text: 'PR754707',  building: 'Building02', product: 'Rifamycin', Campaign: '', start_date: "2021-04-13 00:00",duration:7},
-    { id: 28, procurement: 'PR754708', text: 'PR754708',  building: 'Building02', product: 'Rifamycin', Campaign: '', start_date: "2021-04-15 00:00",duration:7},
-    { id: 29, procurement: 'PR754709', text: 'PR754709',  building: 'Building02', product: 'Rifamycin', Campaign: '', start_date: "2021-04-14 00:00",duration:7},
-    { id: 30, procurement: 'PR754710', text: 'PR754710',  building: 'Building02', product: 'Rifamycin', Campaign: '', start_date: "2021-04-16 00:00",duration:7},
-     ]
+    tasks: [
+      { id: 1, procurement: 'PR754681', text: 'PR754681', building: 'Building01', product: 'Metamizol Na', Campaign: 'Metamizol-Na-C19851', start_date: "2021-04-12 00:00", duration: 7 },
+      { id: 2, procurement: 'PR754682', text: 'PR754682', building: 'Building01', product: 'Metamizol Na', Campaign: 'Metamizol-Na-C19851', start_date: "2021-04-13 00:00", duration: 7 },
+      { id: 3, procurement: 'PR754683', text: 'PR754683', building: 'Building01', product: 'Metamizol Na', Campaign: 'Metamizol-Na-C19851', start_date: "2021-04-15 00:00", duration: 7 },
+      { id: 4, procurement: 'PR754684', text: 'PR754684', building: 'Building01', product: 'Metamizol Na', Campaign: 'Metamizol-Na-C19851', start_date: "2021-04-14 00:00", duration: 7 },
+      { id: 5, procurement: 'PR754685', text: 'PR754685', building: 'Building01', product: 'Metamizol Na', Campaign: 'Metamizol-Na-C19854', start_date: "2021-04-16 00:00", duration: 7 },
+      { id: 6, procurement: 'PR754686', text: 'PR754686', building: 'Building01', product: 'Metamizol Na', Campaign: 'Metamizol-Na-C19854', start_date: "2021-04-12 00:00", duration: 7 },
+      { id: 7, procurement: 'PR754687', text: 'PR754687', building: 'Building01', product: 'Metamizol Na', Campaign: 'Metamizol-Na-C19854', start_date: "2021-04-13 00:00", duration: 7 },
+      { id: 8, procurement: 'PR754688', text: 'PR754688', building: 'Building01', product: 'Metamizol Na', Campaign: 'Metamizol-Na-C19854', start_date: "2021-04-15 00:00", duration: 7 },
+      { id: 9, procurement: 'PR754689', text: 'PR754689', building: 'Building01', product: 'Metamizol Na', Campaign: '', start_date: "2021-04-14 00:00", duration: 7 },
+      { id: 10, procurement: 'PR754690', text: 'PR754690', building: 'Building01', product: 'Metamizol Na', Campaign: '', start_date: "2021-04-16 00:00", duration: 7 },
+      { id: 11, procurement: 'PR754691', text: 'PR754691', building: 'Building01', product: 'Metamizol Mg', Campaign: 'Metamizol-Mg-C19852', start_date: "2021-04-15 00:00", duration: 7 },
+      { id: 12, procurement: 'PR754692', text: 'PR754692', building: 'Building01', product: 'Metamizol Mg', Campaign: 'Metamizol-Mg-C19852', start_date: "2021-04-19 00:00", duration: 7 },
+      { id: 13, procurement: 'PR754693', text: 'PR754693', building: 'Building01', product: 'Metamizol Mg', Campaign: 'Metamizol-Mg-C19852', start_date: "2021-04-20 00:00", duration: 7 },
+      { id: 14, procurement: 'PR754694', text: 'PR754694', building: 'Building01', product: 'Metamizol Mg', Campaign: 'Metamizol-Mg-C19852', start_date: "2021-04-22 00:00", duration: 7 },
+      { id: 15, procurement: 'PR754695', text: 'PR754695', building: 'Building01', product: 'Metamizol Mg', Campaign: 'Metamizol-Mg-C19855', start_date: "2021-04-19 00:00", duration: 7 },
+      { id: 16, procurement: 'PR754696', text: 'PR754696', building: 'Building01', product: 'Metamizol Mg', Campaign: 'Metamizol-Mg-C19855', start_date: "2021-04-12 00:00", duration: 7 },
+      { id: 17, procurement: 'PR754697', text: 'PR754697', building: 'Building01', product: 'Metamizol Mg', Campaign: 'Metamizol-Mg-C19855', start_date: "2021-04-13 00:00", duration: 7 },
+      { id: 18, procurement: 'PR754698', text: 'PR754698', building: 'Building01', product: 'Metamizol Mg', Campaign: 'Metamizol-Mg-C19855', start_date: "2021-04-15 00:00", duration: 7 },
+      { id: 19, procurement: 'PR754699', text: 'PR754699', building: 'Building01', product: 'Metamizol Mg', Campaign: '', start_date: "2021-04-14 00:00", duration: 7 },
+      { id: 20, procurement: 'PR754700', text: 'PR754700', building: 'Building01', product: 'Metamizol Mg', Campaign: '', start_date: "2021-04-16 00:00", duration: 7 },
+      { id: 21, procurement: 'PR754701', text: 'PR754701', building: 'Building02', product: 'Rifamycin', Campaign: 'Rifamycin-C19853', start_date: "2021-04-12 00:00", duration: 7 },
+      { id: 22, procurement: 'PR754702', text: 'PR754702', building: 'Building02', product: 'Rifamycin', Campaign: 'Rifamycin-C19853', start_date: "2021-04-13 00:00", duration: 7 },
+      { id: 23, procurement: 'PR754703', text: 'PR754703', building: 'Building02', product: 'Rifamycin', Campaign: 'Rifamycin-C19853', start_date: "2021-04-15 00:00", duration: 7 },
+      { id: 24, procurement: 'PR754704', text: 'PR754704', building: 'Building02', product: 'Rifamycin', Campaign: 'Rifamycin-C19853', start_date: "2021-04-14 00:00", duration: 7 },
+      { id: 25, procurement: 'PR754705', text: 'PR754705', building: 'Building02', product: 'Rifamycin', Campaign: 'Rifamycin-C19853', start_date: "2021-04-16 00:00", duration: 7 },
+      { id: 26, procurement: 'PR754706', text: 'PR754706', building: 'Building02', product: 'Rifamycin', Campaign: 'Rifamycin-C19853', start_date: "2021-04-12 00:00", duration: 7 },
+      { id: 27, procurement: 'PR754707', text: 'PR754707', building: 'Building02', product: 'Rifamycin', Campaign: '', start_date: "2021-04-13 00:00", duration: 7 },
+      { id: 28, procurement: 'PR754708', text: 'PR754708', building: 'Building02', product: 'Rifamycin', Campaign: '', start_date: "2021-04-15 00:00", duration: 7 },
+      { id: 29, procurement: 'PR754709', text: 'PR754709', building: 'Building02', product: 'Rifamycin', Campaign: '', start_date: "2021-04-14 00:00", duration: 7 },
+      { id: 30, procurement: 'PR754710', text: 'PR754710', building: 'Building02', product: 'Rifamycin', Campaign: '', start_date: "2021-04-16 00:00", duration: 7 },
+    ]
   };
 
   constructor(private taskService: TaskService, private linkService: LinkService) { }
@@ -77,9 +77,9 @@ export class GanComponent implements OnInit {
     gantt.config.columns = [
 
       { name: 'building', label: 'BUILDING', tree: true, align: 'center' },
-      { name: 'product', label: 'PRODUCT', align: 'center'},
-      { name: 'Campaign', label: 'CAMPAIGN', align: 'center', width: '*'  },
-      { name: 'procurement', label: 'ORDER', align: 'center', width:100},
+      { name: 'product', label: 'PRODUCT', align: 'center' },
+      { name: 'Campaign', label: 'CAMPAIGN', align: 'center', width: '*' },
+      { name: 'procurement', label: 'ORDER', align: 'center', width: 100 },
       //{name:"add",label:"",width:35 }
     ];
 
@@ -96,7 +96,7 @@ export class GanComponent implements OnInit {
 
     gantt.config.lightbox.sections = [
       //{ name: "description", height: 70, map_to: "text", type: "textarea" },
-      { name: "Campaign", label: 'Campaign', height: 40, type: "textarea", map_to: "Campaign"},
+      { name: "Campaign", label: 'Campaign', height: 40, type: "textarea", map_to: "Campaign" },
       { name: "time", type: "duration", map_to: "auto" }
     ];
 
@@ -136,7 +136,7 @@ export class GanComponent implements OnInit {
       if (task.text == "") { return "green" };
     };
 
-    gantt.templates.task_class = function(start, end, task){
+    gantt.templates.task_class = function (start, end, task) {
       if (task.$virtual) return "group_task";
     };
 
@@ -147,6 +147,8 @@ export class GanComponent implements OnInit {
     gantt.templates.timeline_cell_class = function (task, date) {
       if (!gantt.isWorkTime(date)) return "weekend";
     };
+
+  //Zooming
 
     const zoomModule = gantt.ext.zoom;
 
@@ -227,7 +229,7 @@ export class GanComponent implements OnInit {
 
     zoomModule.setLevel("day");
 
- 
+
 
     gantt.init(this.ganttContainer.nativeElement);
 
@@ -326,8 +328,6 @@ export class GanComponent implements OnInit {
       }
     }, { thisObject: this });
 
-    
-
   }
 
 
@@ -360,6 +360,9 @@ export class GanComponent implements OnInit {
         group_text: "label"
       });
       gantt.eachTask(function (task) {
+        if (task.type == "project") {
+          task.Campaign = task.text;
+        }
         if (task.$virtual) {
           task.readonly = false;
         }
@@ -372,7 +375,7 @@ export class GanComponent implements OnInit {
     gantt.clearAll();
     gantt.init(this.ganttContainer.nativeElement);
     gantt.parse(this.data);
-    if(listname){
+    if (listname) {
       gantt.groupBy({
         groups: this.selectedCampaigns,
         relation_property: listname,
@@ -380,17 +383,18 @@ export class GanComponent implements OnInit {
         group_text: "label"
       });
       gantt.eachTask(function (task) {
-        if(task.type != "project"){
+        if (task.type != "project") {
           task.color = "#2DC375"
         }
+        if (task.type == "project") {
+          task.Campaign = task.text;
+        }
         if (task.$virtual) {
-          
           task.readonly = false;
-         
         }
       })
       gantt.render()
-    }else gantt.groupBy(false);
+    } else gantt.groupBy(false);
   }
 
   seeOrder() {
@@ -441,6 +445,6 @@ export class GanComponent implements OnInit {
     gantt.redo();
   }
 
-  
+
 
 }
