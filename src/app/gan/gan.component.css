@@ -105,3 +105,10 @@ opacity:0.4;
 .campaign_task .gantt_task_progress{
     background:#D9DF29;
 }
+
+.group_task.gantt_task_line{
+    background: MediumPurple;
+  }
+  .group_task .gantt_task_content{
+    color: Bisque;
+  }

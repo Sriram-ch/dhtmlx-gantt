@@ -136,6 +136,10 @@ export class GanComponent implements OnInit {
       if (task.text == "") { return "green" };
     };
 
+    gantt.templates.task_class = function(start, end, task){
+      if (task.$virtual) return "group_task";
+    };
+
     gantt.templates.scale_cell_class = function (date) {
       if (!gantt.isWorkTime(date)) return "weekend";
     };
@@ -229,6 +233,13 @@ export class GanComponent implements OnInit {
 
     Promise.all([this.taskService.get(), this.linkService.get()])
       .then(([data, links]) => {
+        // this.alldata = data;
+        // console.log("all",this.alldata)
+        // var result = this.alldata.filter((x)=>x.type === "project");
+        // console.log("filter",result);
+        // var res = result.map(({id, text,procurement,building,duration,Campaign,product,start_date}) => ({id, text,procurement,building,duration,Campaign,product,start_date}));
+        // console.log("res",res);
+        // this.data.tasks = res;
         gantt.parse({ data, links });
       });
 
@@ -358,8 +369,7 @@ export class GanComponent implements OnInit {
   }
 
   showCampaign(listname) {
-    
-    gantt.clearAll()
+    gantt.clearAll();
     gantt.init(this.ganttContainer.nativeElement);
     gantt.parse(this.data);
     if(listname){
@@ -370,7 +380,9 @@ export class GanComponent implements OnInit {
         group_text: "label"
       });
       gantt.eachTask(function (task) {
-        task.color = "#2DC375";
+        if(task.type != "project"){
+          task.color = "#2DC375"
+        }
         if (task.$virtual) {
           
           task.readonly = false;
