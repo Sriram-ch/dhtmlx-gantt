@@ -64,6 +64,7 @@ export class GanComponent implements OnInit {
   constructor(private taskService: TaskService, private linkService: LinkService) { }
 
   ngOnInit() {
+    document.getElementById('default').style.borderBottom = '2px solid #2DC375';
     gantt.config.xml_date = '%Y-%m-%d %H:%i';
     //gantt.config.autofit= true;
     gantt.config.grid_width = 480;
@@ -333,8 +334,16 @@ export class GanComponent implements OnInit {
 
 
   showGroups(listname) {
+    if(listname == null){
+      document.getElementById('campaign').style.borderBottom = 'none';
+      document.getElementById('default').style.borderBottom = '2px solid #2DC375';
+      document.getElementById('detailed').style.borderBottom = 'none';
+    }else if(listname != ''){
+      document.getElementById('campaign').style.borderBottom = 'none';
+      document.getElementById('default').style.borderBottom = 'none';
+      document.getElementById('detailed').style.borderBottom = '2px solid #2DC375';
+    }
     gantt.init(this.ganttContainer.nativeElement);
-
     Promise.all([this.taskService.get(), this.linkService.get()])
       .then(([data, links]) => {
         gantt.parse({ data, links });
@@ -372,6 +381,9 @@ export class GanComponent implements OnInit {
   }
 
   showCampaign(listname) {
+    document.getElementById('campaign').style.borderBottom = '2px solid #2DC375';
+    document.getElementById('default').style.borderBottom = 'none';
+    document.getElementById('detailed').style.borderBottom = 'none';
     gantt.clearAll();
     gantt.init(this.ganttContainer.nativeElement);
     gantt.parse(this.data);
@@ -444,7 +456,6 @@ export class GanComponent implements OnInit {
   redo() {
     gantt.redo();
   }
-
 
 
 }

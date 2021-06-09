@@ -27,17 +27,19 @@
     </nav>
     <div style="
 width: calc(100% - 20px);box-shadow: 1px 2px 3px 1px #aaaaaa;margin-left:10px;">
-        <input type='button' id='Campaign' (click)="showGroups()" value="Product Order View">
-        <input type='button' id='Campaign' (click)="showCampaign('Campaign')" value="Campaign View">
-        <input type='button' id='Campaign' (click)="showGroups('Campaign')" value="Detail View">
-        <input type='button' id='undo' (click)="undo()" value="Undo" style="margin-left:10px">
-        <input type='button' id='undo' (click)="redo()" value="Redo">
-        <input type="button" id='order' (click)="seeOrder('this')" value="Expand" style="float: right;">
-        <input type='button' id='zoom' (click)="zoomOut()" value="ZoomOut" style="float: right;margin-right: 10px;">
-        <input type='button' id='zoom' (click)="zoomIn()" value="ZoomIn" style="float: right;">
+    <button class="button" id="default" (click)="showGroups()">Product Order View</button>
+    <button class="button" id="campaign" (click)="showCampaign('Campaign')">Campaign View</button>
+    <button class="button" id="detailed" (click)="showGroups('Campaign')">Detailed View</button>
 
+    <input type="button" id='order' (click)="seeOrder('this')" value="Expand" style="float: right;" class="button2">
 
-        <div #gantt_here class='gantt-chart'></div>
+    <button class="button2" (click)="zoomOut()" style="float: right;margin-right: 15px;">ZoomOut</button>
+    <button class="button2" (click)="zoomIn()" style="float: right;">ZoomIn</button>
+
+    <button class="button2" (click)="redo()" style="float: right;margin-right: 15px;">Redo</button>
+    <button class="button2" (click)="undo()" style="float: right;">Undo</button>
+    
+    <div #gantt_here class='gantt-chart'></div>
     </div>
     <app-footer></app-footer>
 </div>
