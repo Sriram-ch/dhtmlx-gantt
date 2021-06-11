@@ -26,7 +26,7 @@
         </ol>
     </nav>
     <div style="
-width: calc(100% - 20px);box-shadow: 1px 2px 3px 1px #aaaaaa;margin-left:10px;">
+width: calc(100% - 20px);box-shadow: 1px 2px 3px 1px #aaaaaa;margin-left:10px;height: calc(70%);">
     <button class="button" id="default" (click)="showGroups()">Process Order View</button>
     <button class="button" id="campaign" (click)="showCampaign('Campaign')">Campaign View</button>
     <button class="button" id="detailed" (click)="showGroups('Campaign')">Detailed View</button>
@@ -36,8 +36,8 @@ width: calc(100% - 20px);box-shadow: 1px 2px 3px 1px #aaaaaa;margin-left:10px;">
     <button class="button2" (click)="zoomOut()" style="float: right;margin-right: 15px;">ZoomOut</button>
     <button class="button2" (click)="zoomIn()" style="float: right;">ZoomIn</button>
 
-    <button class="button2" (click)="redo()" style="float: right;margin-right: 15px;">Redo</button>
-    <button class="button2" (click)="undo()" style="float: right;">Undo</button>
+    <!-- <button class="button2" (click)="redo()" style="float: right;margin-right: 15px;">Redo</button>
+    <button class="button2" (click)="undo()" style="float: right;">Undo</button> -->
     
     <div #gantt_here class='gantt-chart'></div>
     </div>
