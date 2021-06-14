@@ -4,7 +4,7 @@ import { GanComponent } from './gan/gan.component';
 
 
 const routes: Routes = [
-  { path: 'gan', component: GanComponent }
+  
 ];
 
 

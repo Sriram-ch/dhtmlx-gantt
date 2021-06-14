@@ -67,7 +67,7 @@ export class GanComponent implements OnInit {
     document.getElementById('default').style.borderBottom = '2px solid #2DC375';
     gantt.config.xml_date = '%Y-%m-%d %H:%i';
     //gantt.config.autofit= true;
-    gantt.config.grid_width = 480;
+    gantt.config.grid_width = 540;
     gantt.config.row_height = 30;
     gantt.config.order_branch = 'marker';
     gantt.config.sort = true;
@@ -81,6 +81,7 @@ export class GanComponent implements OnInit {
       { name: 'product', label: 'PRODUCT', align: 'center' },
       { name: 'Campaign', label: 'CAMPAIGN', align: 'center', width: '*' },
       { name: 'procurement', label: 'ORDER', align: 'center', width: 100 },
+      { name: 'vessel', label: 'VESSEL', align: 'center', width: 60 },
       //{name:"add",label:"",width:35 }
     ];
 
