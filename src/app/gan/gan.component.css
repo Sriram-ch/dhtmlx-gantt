@@ -100,8 +100,8 @@ opacity:0.4;
 }
 
 .group_task.gantt_task_line{
-    background: MediumPurple;
-  }
+    background: #008b8b;
+}
   .group_task .gantt_task_content{
     color: Bisque;
   }
