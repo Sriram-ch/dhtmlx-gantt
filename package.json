@@ -27,7 +27,6 @@
     "@types/dhtmlxscheduler": "^4.3.40",
     "bootstrap": "^4.6.0",
     "dhtmlx-gantt": "file:gantt_7.1.1_enterprise",
-    "dhtmlx-scheduler": "file:scheduler_5.3.11_enterprise",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
