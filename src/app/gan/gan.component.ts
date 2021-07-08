@@ -81,7 +81,7 @@ export class GanComponent implements OnInit {
       { name: 'product', label: 'PRODUCT', align: 'center' },
       { name: 'Campaign', label: 'CAMPAIGN', align: 'center', width: '*' },
       { name: 'procurement', label: 'ORDER', align: 'center', width: 100 },
-      { name: 'vessel', label: 'VESSEL', align: 'center', width: 60 },
+     // { name: 'vessel', label: 'VESSEL', align: 'center', width: 60 },
       //{name:"add",label:"",width:35 }
     ];
 
